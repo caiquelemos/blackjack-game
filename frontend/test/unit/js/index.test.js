@@ -88,7 +88,30 @@ describe("index.js", () => {
 
     expect(toggleSpinner).toHaveBeenCalledWith(loginButton, true);
     expect(loginPlayer).toHaveBeenCalledWith("John Doe");
-    await new Promise(process.nextTick); // Espera pela resolução da promessa
+    await new Promise(process.nextTick);
+    expect(sessionStorage.getItem("playerId")).toBe("1");
+    expect(welcomeModal.hide).toHaveBeenCalled();
+    expect(toggleSpinner).toHaveBeenCalledWith(loginButton, false);
+  });
+
+  it("should trigger login button click on Enter key press in playerName input", async () => {
+    const mockPlayerData = { playerId: 1 };
+    loginPlayer.mockResolvedValue(mockPlayerData);
+    startGame.mockResolvedValue({
+      id: 1,
+      dealerExposedCards: [],
+      playerCards: [],
+    });
+
+    const playerNameInput = document.getElementById("playerName");
+    const loginButton = document.getElementById("loginButton");
+
+    fireEvent.input(playerNameInput, { target: { value: "John Doe" } });
+    fireEvent.keyDown(playerNameInput, { key: "Enter", code: "Enter" });
+
+    expect(toggleSpinner).toHaveBeenCalledWith(loginButton, true);
+    expect(loginPlayer).toHaveBeenCalledWith("John Doe");
+    await new Promise(process.nextTick);
     expect(sessionStorage.getItem("playerId")).toBe("1");
     expect(welcomeModal.hide).toHaveBeenCalled();
     expect(toggleSpinner).toHaveBeenCalledWith(loginButton, false);
@@ -106,7 +129,7 @@ describe("index.js", () => {
     fireEvent.click(newGameButton);
 
     expect(toggleSpinner).toHaveBeenCalledWith(newGameButton, true);
-    await new Promise(process.nextTick); // Espera pela resolução da promessa
+    await new Promise(process.nextTick);
     expect(gameEndModal.hide).toHaveBeenCalled();
     expect(toggleSpinner).toHaveBeenCalledWith(newGameButton, false);
   });
@@ -123,7 +146,7 @@ describe("index.js", () => {
 
     expect(toggleSpinner).toHaveBeenCalledWith(hitButton, true);
     expect(standButton).toBeDisabled();
-    await new Promise(process.nextTick); // Espera pela resolução da promessa
+    await new Promise(process.nextTick);
     expect(hit).toHaveBeenCalledWith("1");
     expect(renderGame).toHaveBeenCalledWith(mockGameData);
     expect(toggleSpinner).toHaveBeenCalledWith(hitButton, false);
@@ -142,7 +165,7 @@ describe("index.js", () => {
 
     expect(toggleSpinner).toHaveBeenCalledWith(standButton, true);
     expect(hitButton).toBeDisabled();
-    await new Promise(process.nextTick); // Espera pela resolução da promessa
+    await new Promise(process.nextTick);
     expect(stand).toHaveBeenCalledWith("1");
     expect(renderGame).toHaveBeenCalledWith(mockGameData);
     expect(toggleSpinner).toHaveBeenCalledWith(standButton, false);

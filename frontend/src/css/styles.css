@@ -68,6 +68,10 @@ body {
   width: 100%;
 }
 
+.card-value {
+  font-weight: bold;
+}
+
 #alerts {
   z-index: 999999;
   position: fixed;

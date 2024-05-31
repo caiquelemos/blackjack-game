@@ -11,6 +11,10 @@
 
 This project is a full-stack implementation of a Blackjack card game. The backend is a REST API built with Node.js, Express, and Sequelize, while the frontend is a web application developed using Vanilla JavaScript. The goal is to provide a fun and interactive experience for users to play Blackjack.
 
+![Blackjack Game Interface](blackjack_preview.png)
+
+_Screenshot of the Blackjack game interface_
+
 ## Project Structure
 
 The project is organized into two main directories:

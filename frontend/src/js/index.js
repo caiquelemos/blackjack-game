@@ -25,6 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
     loginButton.disabled = playerNameInput.value.trim() === "";
   });
 
+  playerNameInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && playerNameInput.value.trim() !== "") {
+      loginButton.click();
+    }
+  });
+
   loginButton.addEventListener("click", async () => {
     const playerName = playerNameInput.value.trim();
     toggleSpinner(loginButton, true);
