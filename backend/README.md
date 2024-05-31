@@ -47,13 +47,12 @@ The backend architecture is modularly organized to facilitate maintenance and sc
 
 #### POST /api/v1/game/stand
 
-- **Description:** Finishes the game and returns the final game state.
+- **Description:** Dealer draws cards while under 17 points and while there are cards remaining, then, the winner is announced, and the game ends.
 
 ## Possible Responses
 
 - **200 OK:** The request has succeeded.
 - **201 Created:** The request has succeeded and a new resource has been created.
-- **400 Bad Request:** The server could not understand the request due to invalid syntax.
 - **404 Not Found:** The server can not find the requested resource.
 - **500 Internal Server Error:** The server has encountered a situation it doesn't know how to handle.
 

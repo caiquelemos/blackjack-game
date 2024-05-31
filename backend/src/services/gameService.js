@@ -178,17 +178,14 @@ class GameService {
       const gameDto = {
         id: updatedGame.id,
         startTimestamp: updatedGame.startTimestamp,
-        result: updatedGame.result,
         dealerExposedCards: updatedGame.dealerExposedCards,
         playerCards: updatedGame.playerCards,
         dealerExposedHandValue,
         playerHandValue,
+        result: updatedGame.result,
+        endTimestamp: updatedGame.endTimestamp,
+        dealerHiddenCard: updatedGame.dealerHiddenCard,
       };
-      if (updatedGame.endTimestamp) {
-        gameDto.result = updatedGame.result;
-        gameDto.endTimestamp = updatedGame.endTimestamp;
-        gameDto.dealerHiddenCard = updatedGame.dealerHiddenCard;
-      }
 
       return gameDto;
     } catch (error) {

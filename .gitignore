@@ -2,3 +2,5 @@ node_modules
 .vscode
 database.sqlite
 coverage
+.parcel-cache
+dist

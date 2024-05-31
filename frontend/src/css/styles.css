@@ -1,0 +1,98 @@
+body {
+  background: url("../assets/background.svg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.card {
+  width: 100px;
+  height: 140px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.card.suit-spades::before,
+.card.suit-hearts::before,
+.card.suit-clubs::before,
+.card.suit-diamonds::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+}
+
+.card.suit-spades::before {
+  background-image: url("../assets/suit_spade.svg");
+}
+
+.card.suit-hearts::before {
+  background-image: url("../assets/suit_heart.svg");
+}
+
+.card.suit-clubs::before {
+  background-image: url("../assets/suit_club.svg");
+}
+
+.card.suit-diamonds::before {
+  background-image: url("../assets/suit_diamond.svg");
+}
+
+.card.suit-facedown img {
+  width: 100%;
+}
+
+#alerts {
+  z-index: 999999;
+  position: fixed;
+  top: 5px;
+  flex-direction: column;
+}
+
+#playerPoints,
+#dealerPoints {
+  text-align: center;
+  color: white;
+  font-size: large;
+}
+
+#playerActions {
+  margin: 70px 0;
+}
+
+#playerActions button {
+  margin: 0 5px;
+  width: 100px;
+  font-size: large;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
